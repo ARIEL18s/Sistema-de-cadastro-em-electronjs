@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+
     <title>Sistema de cadastro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css"/>
 
@@ -13,26 +17,80 @@
     <h1>Sistema de cadastro </h1>
     
 
-  <form> 
+  <form onsubmit="lidarComFormulário()"> 
 
-    <label for="nome">Nome Completo : </label>
+    <label for="nome">Nome Completo </label>
     <input id="nome"type="text" name="nome" placeholder="Digite seu nome" />
 
     <label for="cpf">CPF</label>
     <input id="cpf" type="text"name="cpf"placeholder="Digite Seu CPF" />
 
-    <label for="Data_Nascimento">Data De Nasciemnto </label>
-    <input id="Data-Nasciemnto" type="date"name=""placeholder="Digite Sua Data De Nascimento" />
+    <label for="Data_Nascimento">Data De Nascimento </label>
+    <input id="Data_Nascimento" type="date"name=""placeholder="Digite Sua Data De Nascimento" />
 
     <label for="Email">Email </label>
     <input id="Email" type="Email"name="Email"placeholder="Digite Seu EMAIL" />
 
     <label for="Senha">Senha </label>
-    <input id="senha" type="password"name="Senha"placeholder="Digite Sua Senha" />
+    <input id="Senha" type="password"name="Senha"placeholder="Digite Sua Senha" />
 
     <button type="submit">ENVIAR CADASTRO</button>
 
   </form>
+
+<script>
+  function lidarComFormulário(){
+    var nome = document.getElementById('nome').value;
+    console.log(nome);
+    if(nome == ''){
+      alert('Nome não pode ser vazio');
+      return;
+    }
+
+    var cpf = document.getElementById('cpf').value;
+    console.log(cpf);
+    if(cpf == ''){
+      alert('CPF não pode ser vazio');
+      return;
+    }
+      
+
+    var Data_Nascimento = document.getElementById('Data_Nascimento').value;
+    console.log(Data_Nascimento);
+    if(Data_Nascimento == ''){
+      alert('Data de Nascimento não pode ser vazio');
+      return;
+    }
+      
+    
+
+    var Email = document.getElementById('Email').value;
+    console.log(Email);
+    if(Email == ''){
+      alert('Email não pode ser vazio');
+      return;
+    }
+      
+
+    var Senha = document.getElementById('Senha').value;
+    console.log(Senha);
+    if(Senha == ''){
+      alert('Senha não pode ser vazio');
+      return;
+      }
+
+      
+      if(Senha.length < 8){
+        alert('A senha deve conter no mínimo 8 caractere ! ');
+        return;
+      }
+    
+    
+    alert('Formulário enviado com sucesso!');
+  
+
+</script>
+
 
 
   </body>
